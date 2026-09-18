@@ -1,0 +1,207 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--eidos-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  background-color: var(--eidos-background, #ffffff);
+  color: var(--eidos-foreground, #1c1c1e);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.markmap-root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--eidos-background, #ffffff);
+}
+
+.markmap-canvas {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  min-height: 0;
+  display: block;
+  cursor: grab;
+}
+
+.markmap-canvas:active {
+  cursor: grabbing;
+}
+
+/* Floating Top-Left Status Badge */
+.markmap-badge {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--eidos-background, #fff) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--eidos-border, #e5e5ea) 70%, transparent);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--eidos-muted, #8e8e93);
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  z-index: 10;
+  transition: opacity 0.2s ease;
+}
+
+.markmap-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--eidos-accent, #007aff);
+}
+
+.markmap-badge-title {
+  color: var(--eidos-foreground, #1c1c1e);
+  font-weight: 600;
+}
+
+/* Floating Top-Right Controls Toolbar */
+.markmap-controls {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--eidos-background, #fff) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--eidos-border, #e5e5ea) 70%, transparent);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  z-index: 10;
+}
+
+.markmap-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 9px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--eidos-foreground, #1c1c1e);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  user-select: none;
+}
+
+.markmap-btn:hover {
+  background-color: color-mix(in srgb, var(--eidos-foreground, #000) 8%, transparent);
+}
+
+.markmap-btn:active {
+  background-color: color-mix(in srgb, var(--eidos-foreground, #000) 14%, transparent);
+}
+
+.markmap-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.markmap-divider {
+  width: 1px;
+  height: 16px;
+  margin: 0 3px;
+  background-color: color-mix(in srgb, var(--eidos-border, #e5e5ea) 80%, transparent);
+}
+
+/* Empty State */
+.markmap-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  text-align: center;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.markmap-empty-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  color: var(--eidos-muted, #8e8e93);
+  opacity: 0.6;
+}
+
+.markmap-empty-title {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--eidos-foreground, #1c1c1e);
+}
+
+.markmap-empty-desc {
+  margin: 0;
+  max-width: 320px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--eidos-muted, #8e8e93);
+}
+
+/* Markmap SVG Internal Theming */
+.markmap {
+  --markmap-max-width: 9999px;
+  --markmap-a-color: var(--eidos-accent, #007aff);
+  --markmap-a-hover-color: var(--eidos-accent, #007aff);
+  --markmap-code-bg: color-mix(in srgb, var(--eidos-foreground, #000) 6%, transparent);
+  --markmap-code-color: var(--eidos-foreground, #1c1c1e);
+  --markmap-font: 300 14px/20px var(--eidos-font-family, -apple-system, BlinkMacSystemFont, sans-serif);
+  --markmap-circle-open-bg: var(--eidos-background, #ffffff);
+  --markmap-text-color: var(--eidos-foreground, #1c1c1e);
+  font: var(--markmap-font);
+  color: var(--markmap-text-color);
+}
+
+.markmap-link {
+  fill: none;
+  stroke-opacity: 0.7;
+}
+
+.markmap-node > circle {
+  cursor: pointer;
+  stroke-width: 1.5;
+}
+
+.markmap-foreign {
+  display: inline-block;
+}
+
+.markmap-foreign p {
+  margin: 0;
+}
+
+.markmap-foreign code {
+  padding: 2px 5px;
+  font-size: 12px;
+  border-radius: 4px;
+  background-color: var(--markmap-code-bg);
+  color: var(--markmap-code-color);
+}

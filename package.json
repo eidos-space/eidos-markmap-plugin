@@ -1,0 +1,26 @@
+{
+  "name": "@eidos.space/plugin-markmap",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Interactive Markmap mindmap plugin for Markdown files in Eidos Lite",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "eidos-plugin check .",
+    "pack:plugin": "eidos-plugin pack .",
+    "build": "npm run pack:plugin"
+  },
+  "dependencies": {
+    "markmap-lib": "^0.18.12",
+    "markmap-view": "^0.18.12"
+  },
+  "devDependencies": {
+    "@eidos.space/plugin-sdk": "^0.1.1",
+    "@eidos.space/plugin-tools": "^0.1.1",
+    "esbuild": "0.28.1",
+    "typescript": "5.8.3"
+  }
+}
