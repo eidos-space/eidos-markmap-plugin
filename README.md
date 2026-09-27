@@ -2,6 +2,8 @@
 
 An interactive Markdown mindmap visualization plugin for Eidos Lite, powered by [markmap-lib](https://markmap.js.org/) and [markmap-view](https://markmap.js.org/).
 
+Version 0.2.0 requires Eidos Lite 0.19.0 or later and plugin API 2.0.0.
+
 ## Features
 
 - **Interactive Mindmap**: Transforms headings (`# Heading`) and bullet lists (`- item`) into dynamic, collapsible tree graphs.
@@ -17,26 +19,15 @@ An interactive Markdown mindmap visualization plugin for Eidos Lite, powered by 
 
 ## Usage in Eidos Lite
 
-### Method 1: Load Development Source (Hot-reloading)
-1. Open **Eidos Lite**.
-2. Go to **Settings** > **Plugins** (or File editor plugins).
-3. Click **Load development source** and select this directory or `plugin.json`.
-4. Open any `.md` or `.markdown` file in your Space.
-5. In the top editor view switcher, select **Markmap**.
-
-### Method 2: Use the Prebuilt `.eidos-plugin` Package
-1. Build the package:
-   ```bash
-   npm run build
-   ```
-2. The packaged plugin is generated at `dist/eidos.markmap-0.1.0.eidos-plugin`.
-3. Drag and drop the `.eidos-plugin` file into Eidos Lite or place it in your Space's plugin registry.
+1. Download `eidos.markmap-0.2.0.eidos-plugin` from [GitHub Releases](https://github.com/eidos-space/eidos-markmap-plugin/releases), or build it with `npm run build`.
+2. In Eidos Lite, open **Plugins → Install plugin…** and select the package. Enable Markmap in your Space.
+3. Open a Markdown file and select **Markmap** in the editor view switcher.
 
 ## Development
 
 ```bash
 # Install dependencies
-npm install
+npm ci
 
 # Build the distributable .eidos-plugin package
 npm run build

@@ -1,14 +1,14 @@
 import type { ViewContext, TextSnapshot } from "@eidos.space/plugin-sdk"
 import { Transformer } from "markmap-lib"
-import { Markmap } from "markmap-view"
+import { Markmap } from "./generated/markmap-view.js"
 import "./style.css"
 
 export default async function mount(ctx: ViewContext, root: HTMLElement) {
-  if (ctx.binding.kind !== "document") {
+  const file = ctx.editor
+  if (!file) {
     throw new Error("Markmap requires a Markdown document")
   }
 
-  const file = ctx.binding.document
   const transformer = new Transformer()
 
   root.innerHTML = `
