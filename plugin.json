@@ -1,9 +1,11 @@
 {
   "apiVersion": 1,
-  "requires": { "pluginApi": "2.0.0" },
+  "requires": {
+    "pluginApi": "3.0.0"
+  },
   "id": "eidos.markmap",
   "name": "Markmap",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "icon": {
     "paths": [
       "M12 3a3 3 0 0 0-3 3c0 .3.05.59.14.86l-4.29 2.5a3 3 0 0 0-1.85-.36 3 3 0 1 0 3 3c0-.3-.05-.59-.14-.86l4.29-2.5a3 3 0 0 0 1.85.36 3 3 0 0 0 1.85-.36l4.29 2.5c-.09.27-.14.56-.14.86a3 3 0 1 0 3-3 3 3 0 0 0-1.85.36l-4.29-2.5c.09-.27.14-.56.14-.86a3 3 0 0 0-3-3z"
@@ -13,7 +15,6 @@
     {
       "id": "markmap",
       "title": "Markmap",
-      "context": "file",
       "entry": "./src/main.ts",
       "access": "read",
       "icon": {
@@ -24,14 +25,21 @@
           "M9 12h3",
           "M15 6h-1a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h1"
         ]
-      }
+      },
+      "kind": "file",
+      "capabilities": [
+        "document"
+      ]
     }
   ],
   "placements": [
     {
       "location": "file/open",
       "view": "markmap",
-      "extensions": [".md", ".markdown"]
+      "extensions": [
+        ".md",
+        ".markdown"
+      ]
     }
   ]
 }

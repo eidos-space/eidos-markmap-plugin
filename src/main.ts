@@ -4,7 +4,7 @@ import { Markmap } from "./generated/markmap-view.js"
 import "./style.css"
 
 export default async function mount(ctx: ViewContext, root: HTMLElement) {
-  const file = ctx.editor
+  const file = ctx.capabilities.document
   if (!file) {
     throw new Error("Markmap requires a Markdown document")
   }

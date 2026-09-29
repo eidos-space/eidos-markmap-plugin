@@ -2,7 +2,7 @@
 
 An interactive Markdown mindmap visualization plugin for Eidos Lite, powered by [markmap-lib](https://markmap.js.org/) and [markmap-view](https://markmap.js.org/).
 
-Version 0.2.0 requires Eidos Lite 0.19.0 or later and plugin API 2.0.0.
+Version 0.3.0 requires Eidos Lite 0.20.0 or later and plugin API 3.0.0.
 
 ## Features
 
@@ -19,7 +19,7 @@ Version 0.2.0 requires Eidos Lite 0.19.0 or later and plugin API 2.0.0.
 
 ## Usage in Eidos Lite
 
-1. Download `eidos.markmap-0.2.0.eidos-plugin` from [GitHub Releases](https://github.com/eidos-space/eidos-markmap-plugin/releases), or build it with `npm run build`.
+1. Download `eidos.markmap-0.3.0.eidos-plugin` from [GitHub Releases](https://github.com/eidos-space/eidos-markmap-plugin/releases), or build it with `npm run build`.
 2. In Eidos Lite, open **Plugins → Install plugin…** and select the package. Enable Markmap in your Space.
 3. Open a Markdown file and select **Markmap** in the editor view switcher.
 

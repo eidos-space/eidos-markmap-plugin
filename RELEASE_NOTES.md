@@ -1,5 +1,5 @@
-# Markmap 0.2.0
+# Markmap 0.3.0
 
-Markmap now supports Eidos Lite 0.19.0 and plugin API 2.0. Open Markdown files with Markmap to see their interactive mindmap; the plugin reads the opened file without modifying it.
+Requires Eidos Lite 0.20.0 or later and Plugin API 3. Update Lite before installing this package.
 
-Install this version with Eidos Lite 0.19.0 or later.
+Mindmaps read the opened Markdown file through the document capability. The plugin remains read-only and does not modify your notes. CLI Serve is not supported.
