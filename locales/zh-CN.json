@@ -1,0 +1,18 @@
+{
+  "plugin.name": "思维导图",
+  "plugin.description": "将 Markdown 文档呈现为交互式思维导图。",
+  "views.markmap.title": "思维导图",
+  "ui.documentRequired": "思维导图需要绑定 Markdown 文档",
+  "ui.emptyTitle": "暂无 Markdown 内容",
+  "ui.emptyDescription": "编写标题（# 标题）或列表（- 项目），即可显示交互式思维导图。",
+  "ui.fit": "适应窗口",
+  "ui.fitTitle": "适应视图",
+  "ui.expand": "展开",
+  "ui.expandTitle": "全部展开",
+  "ui.collapse": "收起",
+  "ui.collapseTitle": "全部收起",
+  "ui.zoomIn": "放大",
+  "ui.zoomOut": "缩小",
+  "ui.node": "{count} 个节点",
+  "ui.nodes": "{count} 个节点"
+}

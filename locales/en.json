@@ -1,0 +1,18 @@
+{
+  "plugin.name": "Markmap",
+  "plugin.description": "Visualize Markdown documents as interactive mindmaps.",
+  "views.markmap.title": "Markmap",
+  "ui.documentRequired": "Markmap requires a Markdown document",
+  "ui.emptyTitle": "No Markdown content",
+  "ui.emptyDescription": "Write headings (# Heading) or lists (- item) to display an interactive mindmap.",
+  "ui.fit": "Fit",
+  "ui.fitTitle": "Fit to view",
+  "ui.expand": "Expand",
+  "ui.expandTitle": "Expand all",
+  "ui.collapse": "Collapse",
+  "ui.collapseTitle": "Collapse all",
+  "ui.zoomIn": "Zoom in",
+  "ui.zoomOut": "Zoom out",
+  "ui.node": "{count} node",
+  "ui.nodes": "{count} nodes"
+}
