@@ -1,11 +1,11 @@
 {
   "apiVersion": 1,
   "requires": {
-    "pluginApi": "3.0.0"
+    "pluginApi": "3.7.0"
   },
   "id": "eidos.markmap",
-  "name": "Markmap",
-  "version": "0.3.0",
+  "name": "%plugin.name%",
+  "version": "0.4.0",
   "icon": {
     "paths": [
       "M12 3a3 3 0 0 0-3 3c0 .3.05.59.14.86l-4.29 2.5a3 3 0 0 0-1.85-.36 3 3 0 1 0 3 3c0-.3-.05-.59-.14-.86l4.29-2.5a3 3 0 0 0 1.85.36 3 3 0 0 0 1.85-.36l4.29 2.5c-.09.27-.14.56-.14.86a3 3 0 1 0 3-3 3 3 0 0 0-1.85.36l-4.29-2.5c.09-.27.14-.56.14-.86a3 3 0 0 0-3-3z"
@@ -14,7 +14,7 @@
   "views": [
     {
       "id": "markmap",
-      "title": "Markmap",
+      "title": "%views.markmap.title%",
       "entry": "./src/main.ts",
       "access": "read",
       "icon": {
@@ -41,5 +41,17 @@
         ".markdown"
       ]
     }
-  ]
+  ],
+  "description": "%plugin.description%",
+  "i18n": {
+    "defaultLocale": "en",
+    "messages": {
+      "en": "./locales/en.json",
+      "zh-CN": "./locales/zh-CN.json"
+    },
+    "readme": {
+      "en": "./README.md",
+      "zh-CN": "./README.zh-CN.md"
+    }
+  }
 }

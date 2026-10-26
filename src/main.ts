@@ -4,9 +4,10 @@ import { Markmap } from "./generated/markmap-view.js"
 import "./style.css"
 
 export default async function mount(ctx: ViewContext, root: HTMLElement) {
+  const t = (key: string, values?: Record<string, string | number>) => ctx.i18n.t(key, values)
   const file = ctx.capabilities.document
   if (!file) {
-    throw new Error("Markmap requires a Markdown document")
+    throw new Error(t("ui.documentRequired"))
   }
 
   const transformer = new Transformer()
@@ -47,6 +48,25 @@ export default async function mount(ctx: ViewContext, root: HTMLElement) {
   const btnZoomOut = root.querySelector<HTMLButtonElement>("#btn-zoom-out")!
   const btnExpand = root.querySelector<HTMLButtonElement>("#btn-expand")!
   const btnCollapse = root.querySelector<HTMLButtonElement>("#btn-collapse")!
+  let totalNodes = 0
+  function updateLabels() {
+    root.querySelector(".markmap-badge-title")!.textContent = t("plugin.name")
+    root.querySelector(".markmap-empty-title")!.textContent = t("ui.emptyTitle")
+    root.querySelector(".markmap-empty-desc")!.textContent = t("ui.emptyDescription")
+    for (const [button, label, title] of [
+      [btnFit, "ui.fit", "ui.fitTitle"],
+      [btnExpand, "ui.expand", "ui.expandTitle"],
+      [btnCollapse, "ui.collapse", "ui.collapseTitle"],
+    ] as const) {
+      button.textContent = t(label)
+      button.title = t(title)
+    }
+    btnZoomIn.title = t("ui.zoomIn")
+    btnZoomOut.title = t("ui.zoomOut")
+    statEl.textContent = t(totalNodes === 1 ? "ui.node" : "ui.nodes", { count: totalNodes })
+  }
+  ctx.subscriptions.add(ctx.i18n.onDidChangeLocale(updateLabels))
+  updateLabels()
 
   let mm: Markmap | null = null
   let currentRoot: any = null
@@ -94,7 +114,8 @@ export default async function mount(ctx: ViewContext, root: HTMLElement) {
     if (!trimmed) {
       emptyEl.style.display = "flex"
       svgEl.style.display = "none"
-      statEl.textContent = "0 nodes"
+      totalNodes = 0
+      updateLabels()
       wasEmpty = true
       return
     }
@@ -102,11 +123,11 @@ export default async function mount(ctx: ViewContext, root: HTMLElement) {
     try {
       const { root: rootData } = transformer.transform(text)
       currentRoot = rootData
-      const totalNodes = countNodes(rootData)
+      totalNodes = countNodes(rootData)
 
       emptyEl.style.display = "none"
       svgEl.style.display = "block"
-      statEl.textContent = `${totalNodes} node${totalNodes === 1 ? "" : "s"}`
+      updateLabels()
 
       if (!mm) {
         mm = Markmap.create(
